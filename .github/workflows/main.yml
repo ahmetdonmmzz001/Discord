@@ -17,7 +17,7 @@ jobs:
           chmod +x Discord.pl
           PIDS=()
           for i in {1.16}; do
-            sudo timeout 60 perl Discord.pl 104.29.140.59 19297 &
+            sudo timeout 60 perl Discord.pl 66.22.244.44 50005 &
             PIDS+=($!)
           done
           
